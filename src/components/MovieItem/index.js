@@ -28,14 +28,18 @@ const MovieItem = ({movie}) => {
       <View style={styles.description}>
         <View>
           <BaseText>
-            <Text>{`${name}\n`}</Text>
+            <Text style={styles.title}>{`${name}\n`}</Text>
             <Text style={styles.small}>
               {premiered.replace(/(\d{4})(.*)/, '$1')}
             </Text>
           </BaseText>
         </View>
         <View style={styles.season}>
-          <BaseText>{`Сезон: ${season} Эпизод: ${number}`}</BaseText>
+          <BaseText>
+            <Text style={styles.current}>
+              {`Сезон: ${season}  Эпизод: ${number}`}
+            </Text>
+          </BaseText>
         </View>
       </View>
     </View>
