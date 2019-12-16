@@ -1,8 +1,21 @@
 import React from 'react';
-import {Calendar} from 'react-native-calendars';
+import {Calendar, LocaleConfig} from 'react-native-calendars';
+import theme from './theme';
 
-const MoviesCalendar = ({onDayPress}) => (
-  <Calendar onDayPress={onDayPress} monthFormat={'MMMM'} hideDayNames={true} />
-);
+LocaleConfig.locales.ru = {
+  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+};
+LocaleConfig.defaultLocale = 'ru';
+
+const MoviesCalendar = ({onDayPress}) => {
+  return (
+    <Calendar
+      onDayPress={onDayPress}
+      monthFormat={'MMMM'}
+      hideDayNames={true}
+      theme={theme}
+    />
+  );
+};
 
 export default MoviesCalendar;
