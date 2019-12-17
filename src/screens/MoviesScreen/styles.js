@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../styles/colors';
 
 export default StyleSheet.create({
+  loader: {
+    height: '100%',
+    justifyContent: 'center',
+  },
   sectionHeader: {
     alignItems: 'center',
     padding: 15,
@@ -12,5 +16,8 @@ export default StyleSheet.create({
   sectionHeaderText: {
     color: colors.fontColor,
     fontWeight: 'bold',
+  },
+  footerLoader: {
+    paddingBottom: 20,
   },
 });

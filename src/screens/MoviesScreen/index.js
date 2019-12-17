@@ -85,7 +85,7 @@ class MoviesScreen extends React.Component {
   };
 
   renderFooter = () => (
-    <View>
+    <View style={styles.footerLoader}>
       <ActivityIndicator animating size="large" />
     </View>
   );
@@ -94,7 +94,7 @@ class MoviesScreen extends React.Component {
     const {isLoading, data} = this.state;
     if (isLoading) {
       return (
-        <View style={{flex: 1, padding: 20}}>
+        <View style={styles.loader}>
           <ActivityIndicator size="large" />
         </View>
       );
