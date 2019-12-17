@@ -3,7 +3,7 @@ import {colors} from '../../styles/colors';
 
 export default StyleSheet.create({
   text: {
-    fontFamily: 'Open Sans',
+    fontFamily: 'OpenSans',
     fontSize: 16,
     color: colors.fontColor,
   },
