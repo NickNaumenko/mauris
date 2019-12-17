@@ -16,5 +16,6 @@ export default StyleSheet.create({
   },
   text: {
     color: '#d6d6d6',
+    padding: 10,
   },
 });
