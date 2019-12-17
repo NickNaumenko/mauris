@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 15,
     paddingBottom: 15,
+    padding: 15,
   },
   imageWrapper: {
     width: 100,

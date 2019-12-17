@@ -7,7 +7,7 @@ const SectionFooter = ({onPress, moviesCount, isOpen}) => {
   const text = isOpen ? 'Показать основные' : `Еще ${moviesCount} сериалов`;
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={styles.footer}>
       <View style={styles.button}>
         <BaseText>
           <Text style={styles.text}>{text}</Text>

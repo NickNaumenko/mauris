@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, SectionList, ActivityIndicator, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {View, Text, SectionList, ActivityIndicator} from 'react-native';
 import MovieItem from '../../components/MovieItem';
 import SectionFooter from '../../components/SectionFooter';
 import moment from 'moment';
 import * as moviesService from '../../services/moviesService';
+import styles from './styles';
+import BaseText from '../../components/BaseText';
 
-const SHOWN_ITEMS = 4;
+const SHOWN_ITEMS = 2;
 
 class MoviesScreen extends React.Component {
   constructor(props) {
@@ -42,12 +44,21 @@ class MoviesScreen extends React.Component {
     this.setState({date: newDate});
 
     this.fetchMovies(newDate);
-    console.log({date, newDate});
   };
 
   renderItem = ({item, index, section: {isOpen}}) => {
     return index < SHOWN_ITEMS || isOpen ? <MovieItem movie={item} /> : null;
   };
+
+  renderSectionHeader = ({section}) => (
+    <View style={styles.sectionHeader}>
+      <BaseText>
+        <Text style={styles.sectionHeaderText}>
+          {moment(section.title).format('DD MMMM YYYY')}
+        </Text>
+      </BaseText>
+    </View>
+  );
 
   renderSectionFooter = ({section}) => {
     const moviesCount = section.data.length - SHOWN_ITEMS;
@@ -94,12 +105,12 @@ class MoviesScreen extends React.Component {
         <SectionList
           sections={data}
           renderItem={this.renderItem}
-          renderSectionHeader={({section}) => <Text>{section.title}</Text>}
+          renderSectionHeader={this.renderSectionHeader}
           renderSectionFooter={this.renderSectionFooter}
           keyExtractor={item => item.id}
           ListFooterComponent={this.renderFooter}
           onEndReached={this.handleLoadMore}
-          onEndReachedThreshold={0.1}
+          onEndReachedThreshold={0.5}
         />
       </View>
     );
