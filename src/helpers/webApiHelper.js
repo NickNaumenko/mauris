@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://api.tvmaze.com/schedule';
+const API_URL = 'https://api.tvmaze.com/schedule';
 
 axios.defaults.baseURL = API_URL;
 
