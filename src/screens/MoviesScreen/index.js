@@ -29,9 +29,18 @@ class MoviesScreen extends React.Component {
 
   async fetchMovies(date) {
     const movies = await moviesService.getMovies(date);
+    const sections = this.state.data;
 
     this.setState({
-      data: [...this.state.data, {title: date, data: movies, isOpen: false}],
+      data: [
+        ...sections,
+        {
+          title: date,
+          data: movies,
+          isOpen: false,
+          index: sections.length,
+        }
+      ],
       isLoading: false,
     });
   }
@@ -82,6 +91,13 @@ class MoviesScreen extends React.Component {
     this.setState({
       data: updatedSections,
     });
+    if (!section.isOpen) {
+      this.ListRef.scrollToLocation({
+        sectionIndex: section.index,
+        itemIndex: 0,
+        animated: false,
+      });
+    }
   };
 
   renderFooter = () => (
@@ -111,6 +127,9 @@ class MoviesScreen extends React.Component {
           ListFooterComponent={this.renderFooter}
           onEndReached={this.handleLoadMore}
           onEndReachedThreshold={0.5}
+          ref={ref => {
+            this.ListRef = ref;
+          }}
         />
       </View>
     );

@@ -6,18 +6,15 @@ export default StyleSheet.create({
   },
   container: {
     height: '100%',
-    justifyContent: 'space-around',
-  },
-  calendar: {
-    marginTop: 'auto',
+    justifyContent: 'space-between',
   },
   tvWrapper: {
     paddingBottom: 25,
-    paddingTop: 25,
+    paddingTop: '15%',
   },
   tv: {
-    width: 150,
-    height: 112.5,
+    width: 170,
+    height: 127.5,
     alignSelf: 'center',
   },
   text: {
